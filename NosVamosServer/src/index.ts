@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import indexRoutes from './routes/indexRoutes';
 import ResponsavelRoutes from './routes/ResponsavelRoutes';
+import PCDRoutes from './routes/pcdRoutes';
 class Server {
     
     public app: Application;
@@ -25,6 +26,7 @@ class Server {
     routes():void{
         this.app.use('/', indexRoutes);
         this.app.use('/api/responsavel/', ResponsavelRoutes);
+        this.app.use('/api/pcd/', PCDRoutes);
     }
 
     start():void{

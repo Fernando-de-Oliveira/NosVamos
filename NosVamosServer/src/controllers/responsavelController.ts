@@ -25,6 +25,16 @@ class ResponsavelController {
         res.status(404).json({text: "O responsavel não existe"});
     }
 
+    public async getByCPF(req: Request, res:Response): Promise<any>{
+        const {cpf}= req.params;
+        const responsavel = await pool.query('select * from responsavel where cpf_resp = ?', [cpf])
+        console.log(responsavel);
+        if(responsavel.length>0){
+            return res.json(responsavel[0]);
+        }
+        res.status(404).json({text: "O Responsavel não existe"});
+    }
+
     public async update (req: Request, res: Response):Promise<void>{
         const {id} =req.params;
         await pool.query("UPDATE responsavel set ? WHERE id_resp = ?", [req.body, id])
@@ -35,6 +45,13 @@ class ResponsavelController {
         const {id} = req.params;        
         await pool.query('DELETE FROM responsavel WHERE id_resp = ?', [id]);
         res.json({message: "O responsavel foi deletado"});
+    }
+
+    public async loginResponsavel(req: Request, res: Response): Promise<any>{
+        // const {log} = req.params;
+        await pool.query('select * from responsavel where email_resp = ? and senha_resp = ?', [req.body[0], req.body[1]]);
+        res.json({message: "Usuario Logado"});
+        res.status(404).json({text: "Email ou senha Inválido"});
     }
 
 }

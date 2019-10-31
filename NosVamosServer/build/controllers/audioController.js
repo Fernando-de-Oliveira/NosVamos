@@ -14,64 +14,56 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // const pool = require('../database');
 const database_1 = __importDefault(require("../database"));
-class ResponsavelController {
+class AudioController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const responsavel = yield database_1.default.query('SELECT * FROM responsavel');
-            res.json(responsavel);
+            const audio = yield database_1.default.query('SELECT * FROM audio');
+            res.json(audio);
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO responsavel set ?', [req.body]);
+            yield database_1.default.query('INSERT INTO audio set ?', [req.body]);
             console.log(req.body);
-            res.json({ message: 'Responsavel Salvo' });
+            res.json({ message: 'audio Salvo' });
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const responsavel = yield database_1.default.query('SELECT * FROM responsavel where id_resp = ?', [id]);
-            console.log(responsavel);
-            if (responsavel.length > 0) {
-                return res.json(responsavel[0]);
+            const audio = yield database_1.default.query('SELECT * FROM audio where id_resp = ?', [id]);
+            console.log(audio);
+            if (audio.length > 0) {
+                return res.json(audio[0]);
             }
-            res.status(404).json({ text: "O responsavel não existe" });
+            res.status(404).json({ text: "O audio não existe" });
         });
     }
     getByCPF(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { cpf } = req.params;
-            const responsavel = yield database_1.default.query('select * from responsavel where cpf_resp = ?', [cpf]);
-            console.log(responsavel);
-            if (responsavel.length > 0) {
-                return res.json(responsavel[0]);
+            const audio = yield database_1.default.query('select * from audio where cpf_resp = ?', [cpf]);
+            console.log(audio);
+            if (audio.length > 0) {
+                return res.json(audio[0]);
             }
-            res.status(404).json({ text: "O Responsavel não existe" });
+            res.status(404).json({ text: "O audio não existe" });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query("UPDATE responsavel set ? WHERE id_resp = ?", [req.body, id]);
-            res.json({ message: "O Responsavel foi editado" });
+            yield database_1.default.query("UPDATE audio set ? WHERE id_resp = ?", [req.body, id]);
+            res.json({ message: "O audio foi editado" });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM responsavel WHERE id_resp = ?', [id]);
-            res.json({ message: "O responsavel foi deletado" });
-        });
-    }
-    loginResponsavel(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            // const {log} = req.params;
-            yield database_1.default.query('select * from responsavel where email_resp = ? and senha_resp = ?', [req.body[0], req.body[1]]);
-            res.json({ message: "Usuario Logado" });
-            res.status(404).json({ text: "Email ou senha Inválido" });
+            yield database_1.default.query('DELETE FROM audio WHERE id_resp = ?', [id]);
+            res.json({ message: "O audio foi deletado" });
         });
     }
 }
-const responsavelController = new ResponsavelController();
-exports.default = responsavelController;
+const audioController = new AudioController();
+exports.default = audioController;

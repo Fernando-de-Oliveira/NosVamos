@@ -13,9 +13,11 @@ class ResponsavelRoutes {
     config() {
         this.router.get('/', responsavelController_1.default.list);
         this.router.get('/:id', responsavelController_1.default.getOne);
+        this.router.get('/getbyCPF/:cpf', responsavelController_1.default.getByCPF);
         this.router.post('/', responsavelController_1.default.create);
         this.router.put('/:id', responsavelController_1.default.update);
         this.router.delete('/:id', responsavelController_1.default.delete);
+        this.router.post('/login/', responsavelController_1.default.loginResponsavel);
     }
 }
 const responsavelRoutes = new ResponsavelRoutes();
