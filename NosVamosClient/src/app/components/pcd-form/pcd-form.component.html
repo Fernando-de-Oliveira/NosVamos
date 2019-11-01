@@ -1,0 +1,25 @@
+<section class="cadastrar">
+
+    <header class="cadatrar__nav">
+        <nav class="cadastrar__options">
+            <a class="cadastrar__option" href="/login">Entrar</a>
+            <a class="cadastrar__option" href="/responsavel/cadastrar">Cadastrar</a>
+        </nav>
+    </header>
+    <main class="cadastrar__container">
+        <form class="cadastrar__form">
+            <input type="text" [(ngModel)]="PCD.nome_pcd" name="nome" class="input cadastrar__input" placeholder="Nome" required>
+            <input type="text" class="input cadastrar__input" [(ngModel)]="PCD.nascimento_pcd" name="dataNasc" placeholder="Data de Nascimento" required>
+            <input type="text" class="input cadastrar__input" [(ngModel)]="PCD.rg_pcd" name="rg" placeholder="RG" required>
+            <input type="text" class="input cadastrar__input" [(ngModel)]="PCD.telefone_pcd" name="Telefone" placeholder="Telefone" required>
+            <input type="password" class="input cadastrar__input" [(ngModel)]="PCD.senha_pcd" name="Senha" placeholder="Senha" required>
+            <select [(ngModel)]="PCD.tipo_deficiencia" type="text" class="input cadastrar__input" name="tipo_deficiencia" required>
+              <option value="" disabled selected>Tipo de Deficiencia</option>
+              <option name="tipo_deficiencia" >Leve</option>
+              <option name="tipo_deficiencia" >Moderada</option>
+            </select>
+            <!-- <a href="/mapa" class="cadastra__btn home__btn" id="cadastraSave" value="Salvar">Salvar</a> -->
+            <input type="submit" (click)="saveNewPCD();" class="cadastra__btn home__btn" id="cadastraSave" value="Salvar">
+        </form>
+    </main>
+</section>

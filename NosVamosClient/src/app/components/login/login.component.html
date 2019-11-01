@@ -1,0 +1,27 @@
+<section class="login">
+
+    <div class="login__head">
+        <span class="login__title">Entrar</span>
+        <div class="login__flexColors">
+            <span class="login__color"></span>
+            <span class="login__color"></span>
+            <span class="login__color"></span>
+            <span class="login__color"></span>
+        </div>
+    </div>
+    <main class="wrapper">
+        <form class="login__form">
+            <input type="text" id="login__email" name="email" [(ngModel)]="responsavel.email_resp" class="login__input" placeholder="E-mail" required>
+            <input type="password" id="login__pass" name="senha" [(ngModel)]="responsavel.senha_resp" class="login__input" placeholder="Senha" required>
+            <a href="#" class="login__missPass">Esqueci a senha</a>
+            <!-- <a href="/mapa" class="home__btn">Continuar</a> -->
+            <input type="submit" (click)="loginResponsavel()" class="home__btn" value="Continuar">
+
+        </form>
+    </main>
+    <div class="error erro404" id="errorMsg">
+        <button class="errorClose" (click)="closeError()">X</button>
+        <span class="errorText">Email ou senha incorretos</span>
+        <span class="progressErr" id="progressErr"></span>
+    </div>
+</section>
