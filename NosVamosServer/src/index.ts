@@ -5,6 +5,7 @@ import cors from 'cors';
 import indexRoutes from './routes/indexRoutes';
 import ResponsavelRoutes from './routes/ResponsavelRoutes';
 import PCDRoutes from './routes/pcdRoutes';
+import EnderecoRoutes from './routes/enderecoRoutes';
 class Server {
     
     public app: Application;
@@ -27,6 +28,7 @@ class Server {
         this.app.use('/', indexRoutes);
         this.app.use('/api/responsavel/', ResponsavelRoutes);
         this.app.use('/api/pcd/', PCDRoutes);
+        this.app.use('/api/endereco/', EnderecoRoutes);
     }
 
     start():void{

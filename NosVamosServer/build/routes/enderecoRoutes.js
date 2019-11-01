@@ -13,6 +13,7 @@ class EnderecoRoutes {
     config() {
         this.router.get('/', enderecoController_1.default.list);
         this.router.get('/:id', enderecoController_1.default.getOne);
+        this.router.get('/endByResp/:id_resp', enderecoController_1.default.getByResp);
         this.router.post('/', enderecoController_1.default.create);
         this.router.put('/:id', enderecoController_1.default.update);
         this.router.delete('/:id', enderecoController_1.default.delete);

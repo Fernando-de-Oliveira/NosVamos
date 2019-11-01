@@ -67,9 +67,19 @@ class ResponsavelController {
     loginResponsavel(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             // const {log} = req.params;
-            yield database_1.default.query('select * from responsavel where email_resp = ? and senha_resp = ?', [req.body[0], req.body[1]]);
-            res.json({ message: "Usuario Logado" });
-            res.status(404).json({ text: "Email ou senha Inválido" });
+            const responsavel = yield database_1.default.query('select * from responsavel where EMAIL_RESP = ? and SENHA_RESP = ?', [req.body.email_resp, req.body.senha_resp]);
+            if (responsavel.length == undefined) {
+                res.json({ message: "Email ou senha incorretos" });
+            }
+            else if (responsavel.length < 0) {
+                res.json({ message: "Email ou senha incorretos" });
+                res.json(responsavel);
+            }
+            else if (responsavel.length > 0) {
+                // res.json({message: "Usuario Logado"});
+                return res.json(responsavel[0]);
+            }
+            res.status(404).json({ text: "Email ou senha Inválido", temEmail: false });
         });
     }
 }

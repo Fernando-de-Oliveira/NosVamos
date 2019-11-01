@@ -22,7 +22,7 @@ class EnderecoController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO endereco set ?', [req.body]);
+            yield database_1.default.query('INSERT INTO endereco values (?)', [req.body]);
             console.log(req.body);
             res.json({ message: 'endereco Salvo' });
         });
@@ -30,7 +30,18 @@ class EnderecoController {
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const endereco = yield database_1.default.query('SELECT * FROM endereco where id_endereco = ?', [id]);
+            const endereco = yield database_1.default.query('SELECT * FROM endereco where id_end = ?', [id]);
+            console.log(endereco);
+            if (endereco.length > 0) {
+                return res.json(endereco[0]);
+            }
+            res.status(404).json({ text: "O endereco não existe" });
+        });
+    }
+    getByResp(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id_resp } = req.params;
+            const endereco = yield database_1.default.query('select * from endereco where id_resp = ?', [id_resp]);
             console.log(endereco);
             if (endereco.length > 0) {
                 return res.json(endereco[0]);
@@ -41,14 +52,14 @@ class EnderecoController {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query("UPDATE endereco set ? WHERE id_endereco = ?", [req.body, id]);
+            yield database_1.default.query("UPDATE endereco set ? WHERE id_end = ?", [req.body, id]);
             res.json({ message: "O endereco foi editado" });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM endereco WHERE id_endereco = ?', [id]);
+            yield database_1.default.query('DELETE FROM endereco WHERE id_end = ?', [id]);
             res.json({ message: "O endereco foi deletado" });
         });
     }

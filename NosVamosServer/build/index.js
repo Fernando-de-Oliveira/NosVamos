@@ -9,6 +9,7 @@ const cors_1 = __importDefault(require("cors"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const ResponsavelRoutes_1 = __importDefault(require("./routes/ResponsavelRoutes"));
 const pcdRoutes_1 = __importDefault(require("./routes/pcdRoutes"));
+const enderecoRoutes_1 = __importDefault(require("./routes/enderecoRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -26,6 +27,7 @@ class Server {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/api/responsavel/', ResponsavelRoutes_1.default);
         this.app.use('/api/pcd/', pcdRoutes_1.default);
+        this.app.use('/api/endereco/', enderecoRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

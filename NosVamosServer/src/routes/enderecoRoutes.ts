@@ -14,6 +14,7 @@ class EnderecoRoutes {
     config():void{
         this.router.get('/', enderecoController.list);
         this.router.get('/:id', enderecoController.getOne);
+        this.router.get('/endByResp/:id_resp', enderecoController.getByResp);
         this.router.post('/', enderecoController.create);
         this.router.put('/:id', enderecoController.update);
         this.router.delete('/:id', enderecoController.delete);
