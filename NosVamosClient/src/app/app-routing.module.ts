@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MapaComponent } from './components/mapa/mapa.component';
 import { PcdFormComponent } from './components/pcd-form/pcd-form.component';
 import { TrajetosListComponent } from './components/trajetos-list/trajetos-list.component';
+import { TrajetosFormComponent } from './components/trajetos-form/trajetos-form.component';
 
 const routes: Routes = [
   {
@@ -36,11 +37,11 @@ const routes: Routes = [
   {
     path: 'responsavel/create',
     component: ResponsavelFormComponent
+  },
+  {
+    path: 'trajetos/create',
+    component: TrajetosFormComponent
   }
-  // {
-  //   path: 'games/edit/:id',
-  //   component: GameFormComponent
-  // }
 ];
 
 @NgModule({

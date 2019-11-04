@@ -22,7 +22,7 @@ class EnderecoController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO endereco values (?)', [req.body]);
+            yield database_1.default.query('INSERT INTO endereco set ?', [req.body]);
             console.log(req.body);
             res.json({ message: 'endereco Salvo' });
         });

@@ -473,6 +473,10 @@ a.cadastrar__option:nth-child(2) {
     color: #fff;
 }
 
+.btn__cancel {
+    background: #d6d600;
+}
+
 .menu__iconTeste {
     height: 2px;
     width: 30px;

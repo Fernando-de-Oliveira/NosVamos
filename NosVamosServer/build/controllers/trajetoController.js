@@ -23,7 +23,7 @@ class TrajetoController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO trajeto set ?', [req.body]);
+            yield database_1.default.query('INSERT INTO trajeto values (?)', [req.body]);
             console.log(req.body);
             res.json({ message: 'Trajeto Salvo' });
         });
@@ -42,14 +42,14 @@ class TrajetoController {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query("UPDATE trajeto set ? WHERE id_resp = ?", [req.body, id]);
+            yield database_1.default.query("UPDATE trajeto set ? WHERE id_trajeto = ?", [req.body, id]);
             res.json({ message: "O trajeto foi editado" });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM trajeto WHERE id_resp = ?', [id]);
+            yield database_1.default.query('DELETE FROM trajeto WHERE id_trajeto = ?', [id]);
             res.json({ message: "O trajeto foi deletado" });
         });
     }

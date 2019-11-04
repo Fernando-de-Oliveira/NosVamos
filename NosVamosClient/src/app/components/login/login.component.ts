@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  RouterModule, Router, ActivatedRoute} from '@angular/router';
 import { ResponsavelService } from '../../services/responsavel.service';
 import { Responsavel } from '../../models/Responsavel';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-login',

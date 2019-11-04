@@ -14,6 +14,8 @@ import { PcdFormComponent } from './components/pcd-form/pcd-form.component';
 import { TrajetosListComponent } from './components/trajetos-list/trajetos-list.component';
 import { ResponsavelService } from './services/responsavel.service';
 import { AdminComponent } from './components/admin/admin.component';
+import { TrajetosFormComponent } from './components/trajetos-form/trajetos-form.component';
+import { TrajetoService } from './services/trajeto.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { AdminComponent } from './components/admin/admin.component';
     PcdFormComponent,
     TrajetosListComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    TrajetosFormComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { AdminComponent } from './components/admin/admin.component';
   ],
   providers: [
     ResponsavelService,
+    TrajetoService,
     HttpModule,
     HttpClient,
     HttpClientModule,

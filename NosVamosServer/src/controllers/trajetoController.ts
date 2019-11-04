@@ -10,7 +10,7 @@ class TrajetoController {
     }
 
     public async create(req: Request, res: Response): Promise<void> {
-        await pool.query('INSERT INTO trajeto set ?', [req.body]);
+        await pool.query('INSERT INTO trajeto values (?)', [req.body]);
         console.log(req.body);
         res.json({message: 'Trajeto Salvo'});
     }
@@ -27,13 +27,13 @@ class TrajetoController {
 
     public async update (req: Request, res: Response):Promise<void>{
         const {id} =req.params;
-        await pool.query("UPDATE trajeto set ? WHERE id_resp = ?", [req.body, id])
+        await pool.query("UPDATE trajeto set ? WHERE id_trajeto = ?", [req.body, id])
         res.json({message: "O trajeto foi editado"})
     }
 
     public async delete(req: Request, res: Response): Promise<void>{
         const {id} = req.params;        
-        await pool.query('DELETE FROM trajeto WHERE id_resp = ?', [id]);
+        await pool.query('DELETE FROM trajeto WHERE id_trajeto = ?', [id]);
         res.json({message: "O trajeto foi deletado"});
     }
 

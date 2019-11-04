@@ -9,7 +9,7 @@ class EnderecoController {
     }
 
     public async create(req: Request, res: Response): Promise<void> {
-        await pool.query('INSERT INTO endereco values (?)', [req.body]);
+        await pool.query('INSERT INTO endereco set ?', [req.body]);
         console.log(req.body);
         res.json({message: 'endereco Salvo'});
     }
