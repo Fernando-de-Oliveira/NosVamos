@@ -14,45 +14,45 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // const pool = require('../database');
 const database_1 = __importDefault(require("../database"));
-class AudioController {
+class FotoController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const audio = yield database_1.default.query('SELECT * FROM audio');
-            res.json(audio);
+            const foto = yield database_1.default.query('SELECT * FROM foto');
+            res.json(foto);
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO audio set ?', [req.body]);
+            yield database_1.default.query('INSERT INTO foto set ?', [req.body]);
             console.log(req.body);
-            res.json({ message: 'audio Salvo' });
+            res.json({ message: 'Foto Salva' });
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const audio = yield database_1.default.query('SELECT * FROM audio where id_etapa = ?', [id]);
-            console.log(audio);
-            if (audio.length > 0) {
-                return res.json(audio[0]);
+            const foto = yield database_1.default.query('SELECT * FROM foto where id_etapa = ?', [id]);
+            console.log(foto);
+            if (foto.length > 0) {
+                return res.json(foto[0]);
             }
-            res.status(404).json({ text: "O audio não existe" });
+            res.status(404).json({ text: "A foto não existe" });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query("UPDATE audio set ? WHERE id_audio = ?", [req.body, id]);
-            res.json({ message: "O audio foi editado" });
+            yield database_1.default.query("UPDATE foto set ? WHERE id_foto = ?", [req.body, id]);
+            res.json({ message: "A foto foi editada" });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM audio WHERE id_audio = ?', [id]);
-            res.json({ message: "O audio foi deletado" });
+            yield database_1.default.query('DELETE FROM foto WHERE id_foto = ?', [id]);
+            res.json({ message: "A foto foi deletada" });
         });
     }
 }
-const audioController = new AudioController();
-exports.default = audioController;
+const fotoController = new FotoController();
+exports.default = fotoController;
