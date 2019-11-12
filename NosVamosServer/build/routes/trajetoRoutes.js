@@ -12,10 +12,11 @@ class TrajetoRoutes {
     }
     config() {
         this.router.get('/', trajetoController_1.default.list);
-        this.router.get('/:id', trajetoController_1.default.getOne);
+        // this.router.get('/:id', trajetoController.getOne)
         this.router.post('/', trajetoController_1.default.create);
-        this.router.put('/:id', trajetoController_1.default.update);
+        // this.router.put('/:id', trajetoController.update);
         this.router.delete('/:id', trajetoController_1.default.delete);
+        this.router.post('/trajetoByIds/', trajetoController_1.default.trajetoByIds);
     }
 }
 const trajetoRoutes = new TrajetoRoutes();

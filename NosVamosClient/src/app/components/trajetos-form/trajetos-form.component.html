@@ -1,1 +1,88 @@
-<p>trajetos-form works!</p>
+<section class="createTrajetos">
+    <header class="trajeto__header">
+        <div class="trajeto__headRow">
+            <span class="trajeto__keyBack"></span>
+            <h1 class="trajeto__title">Cadastrar trajeto</h1>
+        </div>
+        <div class="trajeto__options">
+            <label for="trajeto-ida" class="trajeto__option is-active">IDA</label>
+            <input type="radio" class="trajeto-check" id="trajeto-ida" name="trajeto-check">
+            <label for="trajeto-volta" class="trajeto__option">VOLTA</label>
+            <input type="radio" class="trajeto-check" id="trajeto-volta" name="trajeto-check">
+        </div>
+    </header>
+    <main>
+        <form class="trajetos__form" action="">
+            <div class="trajetos__box trajetos__box--ida">
+                <div class="trajetos__enderecos">
+                    <span class="trajetos__endereco" (click)="openModalEndereco()">
+                      <div></div>
+                  {{ nomePrimeiro || "Endereço Origem" }}
+                </span>
+                    <span class="trajetos__endereco" disabled (click)="openModalEndereco()">
+                      <div></div>
+                  {{ nomeSegundo || "Endereço Destino" }}
+                </span>
+                    <div class="modalBg">
+                        <div class="trajetos__modalEndereco">
+                            <h2 class="endereco__title">Cadastrar Novo Endereco</h2>
+                            <input type="text" class="input__modal" [(ngModel)]="endereco.nome_end" name="nome" placeholder="Nome do Endereco (Casa, trabalho...)">
+                            <input type="text" class="input__modal" [(ngModel)]="endereco.cep_end" name="CEP" placeholder="CEP">
+                            <input type="text" class="input__modal" [(ngModel)]="endereco.logra_end" name="Logradouro" placeholder="Logradouro">
+                            <input type="text" class="input__modal" [(ngModel)]="endereco.numero_end" name="Numero" placeholder="Numero">
+                            <input type="text" class="input__modal" [(ngModel)]="endereco.uf_end" name="Estado" placeholder="Estado">
+                            <input type="text" class="input__modal" [(ngModel)]="endereco.cidade_end" name="Cidade" placeholder="Cidade">
+                            <input type="text" class="input__modal" [(ngModel)]="endereco.bairro_end" name="Bairro" placeholder="Bairro">
+                            <input type="file" class="input__file" name="foto" [(ngModel)]="endereco.foto_end" id="foto">
+                            <label for="foto" class="label__fileFoto">Foto</label>
+                            <div class="btn__row">
+                                <button class="btn btn__cancelar" (click)="cancelEndereco()">Cancelar</button>
+                                <button class="btn btn__save" (click)="adicionaEndereco()">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="etapas">
+                    <!-- <div class="trajeto__etapa">
+                        <input type="text" class="etapa__title" name="nome_etapa" value="Nova Etapa">
+                        <span class="etapa__remove">X</span>
+                        <input type="file" id="etapa-foto" name="foto_etapa">
+                        <label for="etapa-foto" class="etapa__foto">Anexar Imagem</label>
+                        <input type="text" id="etapa-audio" name="audio_etapa">
+                        <label for="etapa-audio" class="etapa__audio"></label>
+                    </div> -->
+                    <div class="trajeto__etapa">
+                        <input type="text" class="etapa__title" name="nome_etapa" [(ngModel)]="etapa.nome_etapa">
+                        <span class="etapa__remove">X</span>
+                        <input type="file" id="etapa-foto" name="foto_etapa">
+                        <label for="etapa-foto" class="etapa__foto">Anexar Imagem</label>
+                        <input type="text" id="etapa-audio" name="audio_etapa">
+                        <label for="etapa-audio" class="etapa__audio"></label>
+                    </div>
+                    <!-- <div class="trajeto__etapa">
+                        <input type="text" class="etapa__title" name="nome_etapa" [(ngModel)]="etapa.nome_etapa">
+                        <span class="etapa__remove">X</span>
+                        <input type="file" id="etapa-foto" name="foto_etapa">
+                        <label for="etapa-foto" class="etapa__foto">Anexar Imagem</label>
+                        <input type="text" id="etapa-audio" name="audio_etapa">
+                        <label for="etapa-audio" class="etapa__audio"></label>
+                    </div>
+                    <div class="trajeto__etapa">
+                        <input type="text" class="etapa__title" name="nome_etapa" [(ngModel)]="etapa.nome_etapa">
+                        <span class="etapa__remove">X</span>
+                        <input type="file" id="etapa-foto" name="foto_etapa">
+                        <label for="etapa-foto" class="etapa__foto">Anexar Imagem</label>
+                        <input type="text" id="etapa-audio" name="audio_etapa">
+                        <label for="etapa-audio" class="etapa__audio"></label>
+                    </div> -->
+                </div>
+                <button class="btn btn__addEtapa" (click)="adicionaEtapa()">Adicionar Etapa</button>
+                <button class="btn btn__switch" (click)="salvarTrajeto()">Salvar</button>
+            </div>
+            <!-- <div class="trajetos__box trajetos__box--volta">
+
+            </div> -->
+        </form>
+    </main>
+
+</section>

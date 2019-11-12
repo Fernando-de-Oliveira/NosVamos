@@ -12,7 +12,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// const pool = require('../database');
 const database_1 = __importDefault(require("../database"));
 class ResponsavelController {
     list(req, res) {
@@ -39,17 +38,15 @@ class ResponsavelController {
             res.status(404).json({ text: "O responsavel não existe" });
         });
     }
-    getByCPF(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { cpf } = req.params;
-            const responsavel = yield database_1.default.query('select * from responsavel where cpf_resp = ?', [cpf]);
-            console.log(responsavel);
-            if (responsavel.length > 0) {
-                return res.json(responsavel[0]);
-            }
-            res.status(404).json({ text: "O Responsavel não existe" });
-        });
-    }
+    // public async getByCPF(req: Request, res:Response): Promise<any>{
+    //     const {cpf}= req.params;
+    //     const responsavel = await pool.query('select * from responsavel where cpf_resp = ?', [cpf])
+    //     console.log(responsavel);
+    //     if(responsavel.length>0){
+    //         return res.json(responsavel[0]);
+    //     }
+    //     res.status(404).json({text: "O Responsavel não existe"});
+    // }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;

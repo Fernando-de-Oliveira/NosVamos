@@ -18,6 +18,7 @@ class EnderecoRoutes {
         this.router.post('/', enderecoController.create);
         this.router.put('/:id', enderecoController.update);
         this.router.delete('/:id', enderecoController.delete);
+        this.router.post('/endByLogra/', enderecoController.endByLogra);
     }
 
 }

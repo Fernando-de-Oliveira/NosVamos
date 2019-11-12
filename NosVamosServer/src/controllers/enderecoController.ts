@@ -46,6 +46,21 @@ class EnderecoController {
         res.json({message: "O endereco foi deletado"});
     }
 
+    public async endByLogra(req: Request, res: Response): Promise<any>{
+        // const {log} = req.params;
+        const endereco =  await pool.query('select * from endereco where logra_end = ? and numero_end = ?', [req.body.logra_end, req.body.numero_end]);
+        if (endereco.length == undefined){
+            res.json({message: "Logradouro ou numero incorretos"});
+        }else if(endereco.length < 0)
+        {
+            res.json({message: "Logradouro ou numero incorretos"});
+            res.json(endereco);
+        }else if(endereco.length > 0){
+            return res.json(endereco[0]);
+        }
+        res.status(404).json({text: "Logradouro ou numero Inválido"});
+    }
+
 }
 
 const enderecoController = new EnderecoController();

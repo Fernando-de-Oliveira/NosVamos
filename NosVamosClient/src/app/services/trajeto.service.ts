@@ -26,10 +26,10 @@ export class TrajetoService {
       return Observable.throw(error.status || "Server Error")
   }
 
-  getTrajetoById(id: string):Observable<any>{
-    return this.http.get(`${this.API_URI}/trajeto/${id}`)
-    .catch(this.errorHandler);
-  }
+  // getTrajetoById(id: string):Observable<any>{
+  //   return this.http.get(`${this.API_URI}/trajeto/${id}`)
+  //   .catch(this.errorHandler);
+  // }
 
   deleteTrajeto(id: string) {
     return this.http.delete(`${this.API_URI}/trajeto/${id}`);
@@ -43,4 +43,9 @@ export class TrajetoService {
   updateTrajeto(id: string|number, updatedTrajeto: Trajeto) {
     return this.http.put(`${this.API_URI}/trajeto/${id}`, updatedTrajeto);
   }
+
+  getTrajetoByIds(trajeto:Trajeto):Observable<any>{
+    return this.http.post(`${this.API_URI}/endereco/trajetoByIds/`, trajeto)
+    .catch(this.errorHandler);
+    }
 }

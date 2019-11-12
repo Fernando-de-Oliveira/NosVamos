@@ -13,10 +13,11 @@ class TrajetoRoutes {
 
     config():void{
         this.router.get('/', trajetoController.list);
-        this.router.get('/:id', trajetoController.getOne)
+        // this.router.get('/:id', trajetoController.getOne)
         this.router.post('/', trajetoController.create);
-        this.router.put('/:id', trajetoController.update);
+        // this.router.put('/:id', trajetoController.update);
         this.router.delete('/:id', trajetoController.delete);
+        this.router.post('/trajetoByIds/', trajetoController.trajetoByIds);
     }
 
 }
