@@ -26,10 +26,10 @@ export class EtapaService {
       return Observable.throw(error.status || "Server Error")
   }
 
-  getEtapaById(id: string):Observable<any>{
-    return this.http.get(`${this.API_URI}/etapa/${id}`)
+  getEtapaByIds(etapa:Etapa):Observable<any>{
+    return this.http.post(`${this.API_URI}/etapa/etapaByIds/`, etapa)
     .catch(this.errorHandler);
-  }
+    }
 
   deleteEtapa(id: string) {
     return this.http.delete(`${this.API_URI}/etapa/${id}`);

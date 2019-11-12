@@ -7,6 +7,7 @@ import ResponsavelRoutes from './routes/ResponsavelRoutes';
 import PCDRoutes from './routes/pcdRoutes';
 import EnderecoRoutes from './routes/enderecoRoutes';
 import TrajetoRoutes from './routes/trajetoRoutes';
+import EtapaRoutes from './routes/etapaRoutes';
 class Server {
     
     public app: Application;
@@ -31,7 +32,7 @@ class Server {
         this.app.use('/api/pcd/', PCDRoutes);
         this.app.use('/api/endereco/', EnderecoRoutes);
         this.app.use('/api/trajeto/', TrajetoRoutes);
-        // this.app.use('/api/etapa/', EnderecoRoutes);
+        this.app.use('/api/etapa/', EtapaRoutes);
     }
 
     start():void{

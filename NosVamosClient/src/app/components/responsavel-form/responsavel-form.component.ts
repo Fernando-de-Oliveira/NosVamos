@@ -52,7 +52,7 @@ export class ResponsavelFormComponent implements OnInit {
           res => {
             console.log(res);
             console.log(this.responsavel);
-            this.router.navigate(['/cadastrar-pcd/' + this.responsavel.cpf_resp]);
+            this.router.navigate(['/pcd/create/' + this.responsavel.cpf_resp]);
           },
           error => this.errorMsg = error
         )

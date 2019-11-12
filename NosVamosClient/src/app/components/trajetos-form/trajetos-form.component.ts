@@ -5,6 +5,7 @@ import { Etapa } from '../../models/Etapa';
 import { Trajeto } from '../../models/Trajeto';
 import { EnderecoService } from '../../services/endereco.service';
 import { ResponsavelService } from '../../services/responsavel.service';
+import { EtapaService } from '../../services/etapa.service';
 import { TrajetoService } from '../../services/trajeto.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -61,6 +62,7 @@ export class TrajetosFormComponent implements OnInit {
   constructor(
     private trajetoService: TrajetoService,
     private enderecoService: EnderecoService,
+    private etapaService: EtapaService,
     private responsavelService: ResponsavelService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
@@ -126,7 +128,17 @@ export class TrajetosFormComponent implements OnInit {
       $('.trajetos__endereco:first-child div').css('background', '#00ff1f');
       this.idOrigem = res.ID_END;
       this.nomePrimeiro = this.endereco.nome_end;
-
+      this.endereco = {
+        logra_end: "",
+        cidade_end: "",
+        numero_end: "",
+        uf_end: "",
+        nome_end: "",
+        foto_end: "",
+        cep_end: "",
+        bairro_end: "",
+        id_resp: 0
+      }
       }else{
       $('.trajetos__endereco div').css('background', '#00ff1f');
       this.idDestino = res.ID_END;
@@ -150,7 +162,18 @@ export class TrajetosFormComponent implements OnInit {
         console.log(res);
       },
       err => console.log(err)
+    );
+
+    for(let i = 0; i < $('.trajeto__etapa').length ;i++){
+      console.log($('.trajeto__etapa')[i]);
+      $('.trajeto__etapa')[i]
+    }
+    this.etapaService.saveEtapa(this.etapa).subscribe(
+      res=>{
+        console.log(res);
+      }, err => console.log(err)
     )
+    // this.
   }
 
 }

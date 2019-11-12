@@ -11,6 +11,7 @@ const ResponsavelRoutes_1 = __importDefault(require("./routes/ResponsavelRoutes"
 const pcdRoutes_1 = __importDefault(require("./routes/pcdRoutes"));
 const enderecoRoutes_1 = __importDefault(require("./routes/enderecoRoutes"));
 const trajetoRoutes_1 = __importDefault(require("./routes/trajetoRoutes"));
+const etapaRoutes_1 = __importDefault(require("./routes/etapaRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -30,7 +31,7 @@ class Server {
         this.app.use('/api/pcd/', pcdRoutes_1.default);
         this.app.use('/api/endereco/', enderecoRoutes_1.default);
         this.app.use('/api/trajeto/', trajetoRoutes_1.default);
-        // this.app.use('/api/etapa/', EnderecoRoutes);
+        this.app.use('/api/etapa/', etapaRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

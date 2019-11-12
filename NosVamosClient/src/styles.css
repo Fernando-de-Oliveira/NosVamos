@@ -254,7 +254,7 @@ body {
     color: #ccc;
     text-decoration: none;
     font-family: roboto, sans-serif;
-    margin: 90px 15px 10px;
+    margin: 80px 15px 10px;
     display: none;
 }
 
@@ -575,7 +575,7 @@ select.input.cadastrar__input {
 .trajetos {
     background: #2A2E43;
     max-width: 100%;
-    /* height: 100vh; */
+    min-height: calc(100vh - 30px);
     padding: 15px;
 }
 
@@ -686,6 +686,8 @@ select.input.cadastrar__input {
     display: flex;
     justify-content: center;
     align-items: center;
+    bottom: 40px;
+    position: absolute;
     background: #3acce1;
     margin: 15px auto;
     color: #fff;
@@ -762,23 +764,29 @@ select.input.cadastrar__input {
 
 .trajeto__keyBack {
     width: 20px;
+    text-decoration: none;
     height: 20px;
-    background: black;
     display: block;
+    top: 15px;
+    left: 15px;
     align-self: flex-start;
+    font-size: 25px;
+    color: #000;
 }
 
 .trajeto__headRow {
     display: flex;
     width: 100%;
-    padding: 15px;
+    height: 100px;
     flex-direction: column;
-    align-items: center;
 }
 
 .trajeto__title {
-    margin: 10px;
+    margin: 23px auto 0;
     font-size: 34px;
+    display: block;
+    width: 100%;
+    text-align: center;
     font-family: roboto, sans-serif;
     color: #585858;
 }
@@ -844,7 +852,7 @@ select.input.cadastrar__input {
     background: #696969;
     content: '';
     height: 1px;
-    width: 90%;
+    width: 70%;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -944,7 +952,7 @@ select.input.cadastrar__input {
 }
 
 .etapas {
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -1021,13 +1029,13 @@ select.input.cadastrar__input {
 
 .btn.btn__addEtapa {
     display: block;
-    width: 80%;
-    margin: 10px auto 20px auto;
+    width: 90%;
+    margin: 10px auto 10px auto;
     border-radius: 10px;
     border: none;
     background: #31ff41;
     color: #fff;
-    height: 45px;
+    height: 50px;
     font-size: 23px;
 }
 
@@ -1043,10 +1051,10 @@ select.input.cadastrar__input {
 }
 
 .btn.btn__switch {
-    width: 80%;
+    width: 90%;
     display: block;
-    margin: 15px auto;
-    height: 45px;
+    margin: 10px auto;
+    height: 50px;
     border: none;
     border-radius: 10px;
     background: #3acce1;
