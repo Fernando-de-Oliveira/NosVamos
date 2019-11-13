@@ -23,16 +23,6 @@ class ResponsavelController {
         res.status(404).json({text: "O responsavel não existe"});
     }
 
-    // public async getByCPF(req: Request, res:Response): Promise<any>{
-    //     const {cpf}= req.params;
-    //     const responsavel = await pool.query('select * from responsavel where cpf_resp = ?', [cpf])
-    //     console.log(responsavel);
-    //     if(responsavel.length>0){
-    //         return res.json(responsavel[0]);
-    //     }
-    //     res.status(404).json({text: "O Responsavel não existe"});
-    // }
-
     public async update (req: Request, res: Response):Promise<void>{
         const {id} =req.params;
         await pool.query("UPDATE responsavel set ? WHERE id_resp = ?", [req.body, id])

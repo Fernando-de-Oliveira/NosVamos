@@ -43,14 +43,6 @@
                     </div>
                 </div>
                 <div class="etapas">
-                    <!-- <div class="trajeto__etapa">
-                        <input type="text" class="etapa__title" name="nome_etapa" value="Nova Etapa">
-                        <span class="etapa__remove">X</span>
-                        <input type="file" id="etapa-foto" name="foto_etapa">
-                        <label for="etapa-foto" class="etapa__foto">Anexar Imagem</label>
-                        <input type="text" id="etapa-audio" name="audio_etapa">
-                        <label for="etapa-audio" class="etapa__audio"></label>
-                    </div> -->
                     <div class="trajeto__etapa">
                         <input type="text" class="etapa__title" name="nome_etapa" [(ngModel)]="etapa.nome_etapa">
                         <span class="etapa__remove">X</span>
@@ -59,22 +51,6 @@
                         <input type="text" id="etapa-audio" name="audio_etapa">
                         <label for="etapa-audio" class="etapa__audio"></label>
                     </div>
-                    <!-- <div class="trajeto__etapa">
-                        <input type="text" class="etapa__title" name="nome_etapa" [(ngModel)]="etapa.nome_etapa">
-                        <span class="etapa__remove">X</span>
-                        <input type="file" id="etapa-foto" name="foto_etapa">
-                        <label for="etapa-foto" class="etapa__foto">Anexar Imagem</label>
-                        <input type="text" id="etapa-audio" name="audio_etapa">
-                        <label for="etapa-audio" class="etapa__audio"></label>
-                    </div>
-                    <div class="trajeto__etapa">
-                        <input type="text" class="etapa__title" name="nome_etapa" [(ngModel)]="etapa.nome_etapa">
-                        <span class="etapa__remove">X</span>
-                        <input type="file" id="etapa-foto" name="foto_etapa">
-                        <label for="etapa-foto" class="etapa__foto">Anexar Imagem</label>
-                        <input type="text" id="etapa-audio" name="audio_etapa">
-                        <label for="etapa-audio" class="etapa__audio"></label>
-                    </div> -->
                 </div>
                 <button class="btn btn__addEtapa" (click)="adicionaEtapa()">Adicionar Etapa</button>
                 <button class="btn btn__switch" (click)="salvarTrajeto()">Salvar</button>
